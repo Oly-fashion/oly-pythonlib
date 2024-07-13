@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "oly-pythonlib"
+version = "0.1.0"
+description = "Python libraries for Oly"
+authors = ["George Mathews <geomatthews@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic = "^2.8.2"
+pycryptodome = "^3.20.0"
+cryptography = "^42.0.8"
+fastapi = "^0.111.0"
+deepmerge = "^1.1.1"
+pandas = "^2.2.2"
+gspread = "^6.0.0"
+gspread-asyncio = "^2.0.0"
+pyjwt = "^2.8.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+isort = "^5.13.2"
+ruff = "^0.5.1"
+pytest = "^8.2.2"
+mypy = "^1.10.1"
+types-pyyaml = "^6.0.12.20240311"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+exclude = "^(.*\\.md|.*\\.yaml|.*\\.lock|.*\\.ini)$"
+
+[tool.ruff]
+extend-exclude = ["*.yaml", "poetry.lock", "pyproject.toml", "README.md"]
+line-length = 120
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
